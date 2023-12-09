@@ -19,8 +19,16 @@
           </div>
       </div>
       
-    
-      <FORM method="POST" action="check_login.php">
+    <?php
+      require "header.php";
+      if(isset($_GET['qrcode'])){
+        $_SESSION['qrcode']=$_GET['qrcode'];
+      }
+      else{
+        $_SESSION['qrcode']='none';
+      }
+    ?>
+      <FORM method="POST" action='check_login.php'>
         <table border=0 width="40%" align="center">
           <tr>
               <td>Username*: </td>
