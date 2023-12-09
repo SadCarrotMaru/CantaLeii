@@ -12,8 +12,8 @@
             <div id = "one"> 
                 <div class = "button"> <a> CONT </a> </div>
                 <?php
-                require "header.php";
-                    echo '<a>'.$_SESSION['username'].'</a>';
+                    require "header.php";
+                    echo '<a class="click">'.$_SESSION['username'].'</a>';
                 ?>
                 <a class = "click"> Log out </a>
             </div>
