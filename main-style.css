@@ -49,6 +49,9 @@ html, body{
 #one > .button{
     height: auto;
 }
+.button:hover{
+    cursor: pointer;
+}
 #card-container{
     background-color: BurlyWood;
 }
@@ -61,6 +64,9 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#eco:hover{
+    cursor: pointer;
 }
 a{
     color: white;

@@ -6,12 +6,9 @@
         <meta name="description" content="Main Page">
           <title>MAIN</title>
           <link rel="stylesheet" href="main-style.css" type="text/css">
+          <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
-        <?php
-        $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        echo $actual_link;
-        ?>
         <div id = "content">
             <div id = "one"> 
                 <div class = "button"> <a> CONT </a> </div>
@@ -23,7 +20,7 @@
                 <a href="logout.php" class = "click"> Log out </a>
             </div>
             <div id = "two">
-                <div class = "button"> <a> Transfer </a> </div>
+                <div id = "transfer-button" class = "button"> <a> Transfer </a> </div>
                 <div class = "button"> <a> Date Card </a> </div>
                 <div class = "button"> <a> Istoric Tranzactii </a> </div>
                 <div class = "button"> <a> Round Up </a> </div>
