@@ -71,7 +71,6 @@ function button3()
     localStorage.pagename = "metrou";
     toggleButtons();
 }
-
 const options = 
 {
     enableHighAccuracy: true,

@@ -4,6 +4,28 @@ $username = "336043";
 $password = "m.2a*Z!#mV!9vWH";
 $dbname = "neverlanes_cantaleii";
 
+
+function same_location($lat1, $lon1, $lat2, $lon2)
+{
+    $LOCATION_ERROR = 500; # in meters, change if you want a lower threshold
+	$distance = calculateDistance($lat1, $lon1, $lat2, $lon2);
+    echo $distance;
+	if ($distance <= $LOCATION_ERROR) return true;
+	return false;
+}
+
+
+function calculateDistance($lat1, $lon1, $lat2, $lon2) 
+{
+    $earthRadius = 6371000; // Earth radius in meters
+    $dLat = deg2rad($lat2 - $lat1);
+    $dLon = deg2rad($lon2 - $lon1);
+    $a = sin($dLat / 2) * sin($dLat / 2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($dLon / 2) * sin($dLon / 2);
+    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+    $distance = $earthRadius * $c;
+    return $distance;
+}
+
 // Create connection
 require "header.php";
 // print_r($_POST);
@@ -13,7 +35,7 @@ if (!$link) {
     echo "Error: Unable to connect to MySQL.";
     exit;
 }
-
+echo 'ok';
 if(count($_POST)>0) {
     $username=$_POST['username'];
     $password=$_POST['password'];
@@ -59,6 +81,26 @@ if(count($_POST)>0) {
                     echo $row["max(time)"]. "<br>"; 
                   } 
             }
+            
+            //check if the request is being made from the qr code's location
+            $q_locatie="select latitude, longitude from LOCATIONS where location_id = ".$location_id.";";
+            echo $q_locatie;
+            $ans_locatie = $link->query($q_locatie);
+            if($ans_locatie->num_rows > 0) {
+                while ($row = $ans_locatie->fetch_assoc()) {
+                    $targetlatitude = $row["latitude"];
+                    $targetlongitude = $row["longitude"];
+                }
+            }
+            
+            $latitude = $_POST['latitude'];
+            $longitude = $_POST['longitude'];
+            echo $targetlatitude;
+            echo $targetlongitude;
+            echo $latitude;
+            echo $longitude;
+            if(same_location($latitude,$longitude,$targetlatitude,$targetlongitude) == true)
+            {
             //check if the station is not timed out (not used in the same day)
             //get current time
             $date = date('Y-m-d');
@@ -83,18 +125,28 @@ if(count($_POST)>0) {
                 $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",".$date.");";
                 $link->query($q4);
                 //then we redirect to livada de meri
+                $_SESSION['qrcode']='none';
+                header("Location: eco.html");
             }
             else{
+                $_SESSION['qrcode']='none';
                 //is not valid
                 echo "you re on timeout!";
+                header("Location: main.php");
             }
+            }
+                else
+                {
+                    $_SESSION['qrcode']='none';
+                    //not valid -- location failed
+                    echo "you are not near the qr code!";
+                    header("Location: main.php");
+                }
 
 
 
-
+            echo same_location($latitude,$longitude,$targetlatitude,$targetlongitude);
             ///next
-            $_SESSION['qrcode']='none';
-            header("Location: eco.html");
         }
         else{
             echo $_SESSION['qrcode'];

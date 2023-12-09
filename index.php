@@ -8,6 +8,7 @@
     <meta name="description" content="cantaleii login">
     <meta name="keywords" content="cantaleii">
  </head>
+ 
  <body>
     <div class="pagina">
       <div class="header" align="center">
@@ -50,13 +51,37 @@
             <td><INPUT TYPE="reset" VALUE="reset"></td>
             <td><INPUT TYPE="submit" VALUE="send"></td>
           </tr>
+          <tr>
+            <td><input type="hidden" id="latitude" name="latitude" value=0></td>
+            <td><input type="hidden" id="longitude" name="longitude" value=0></td>
+          </tr>
           
          </table>
          </form>
-         
-  </div>
+    </div>
   
  
 </body>
+<script>
+const options = 
+{
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+};
+  
+function success(pos) 
+{
+    const crd = pos.coords;
+    document.getElementById("latitude").value=crd.latitude;
+    document.getElementById("longitude").value=crd.longitude;
+}
+  
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+console.log("ok");
+navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
 
 </html>
