@@ -15,7 +15,8 @@
                     require "header.php";
                     echo '<a class="click">'.$_SESSION['username'].'</a>';
                 ?>
-                <a class = "click"> Log out </a>
+                
+                <a href="logout.php" class = "click"> Log out </a>
             </div>
             <div id = "two">
                 <div class = "button"> <a> Transfer </a> </div>
