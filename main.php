@@ -8,6 +8,10 @@
           <link rel="stylesheet" href="main-style.css" type="text/css">
     </head>
     <body>
+        <?php
+        $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        echo $actual_link;
+        ?>
         <div id = "content">
             <div id = "one"> 
                 <div class = "button"> <a> CONT </a> </div>
