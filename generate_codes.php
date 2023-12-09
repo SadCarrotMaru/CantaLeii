@@ -77,10 +77,10 @@ if (!$link) {
     
     
 $metroNames = [
-    'Piața Unirii',
-    'Piața Victoriei',
-    'Piața Romană',
-    'Piața Obor',
+    'Piata Unirii',
+    'Piata Victoriei',
+    'Piata Romană',
+    'Piata Obor',
     'Tineretului',
     'Eroilor',
     'Iancului',
@@ -139,6 +139,7 @@ $metroLongitudes = [
         echo $query;
         $link->query($query);
     }*/
+    
     exit();
 
 
