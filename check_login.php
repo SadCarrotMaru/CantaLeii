@@ -62,7 +62,7 @@ if(count($_POST)>0) {
             //check if the station is not timed out (not used in the same day)
             //get current time
             $date = date('Y-m-d');
-            if($date != $most_recent){ //de modificat ==
+            if($date != $most_recent){ 
                 //is valid
                 //we add a point to travel points and a entry in history of travels
                 $eco_pts=1;
@@ -83,18 +83,20 @@ if(count($_POST)>0) {
                 $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",".$date.");";
                 $link->query($q4);
                 //then we redirect to livada de meri
+                ///next
+                $_SESSION['qrcode']='none';
+                header("Location: eco.html");
             }
             else{
                 //is not valid
+                $_SESSION['qrcode']='none';
                 echo "you re on timeout!";
             }
 
 
 
 
-            ///next
-            $_SESSION['qrcode']='none';
-            //header("Location: eco.html");
+            
         }
         else{
             header("Location: main.php");
