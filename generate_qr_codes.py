@@ -5,7 +5,7 @@ for line in codes:
     split_result = line.split()
     QR_CODE = split_result[-1]
 
-    URL = "https://cantaleii.alwaysdata.net/index.html?qrcode=" + '"' + QR_CODE.strip() + '"'
+    URL = "https://cantaleii.alwaysdata.net/index.php?qrcode=" + '"' + QR_CODE.strip() + '"'
     qrcode = segno.make_qr(URL)
     
     name = ' '.join(split_result[:-1])

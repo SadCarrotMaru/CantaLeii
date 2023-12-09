@@ -94,9 +94,10 @@ if(count($_POST)>0) {
 
             ///next
             $_SESSION['qrcode']='none';
-            //header("Location: eco.html");
+            header("Location: eco.html");
         }
         else{
+            echo $_SESSION['qrcode'];
             header("Location: main.php");
         }
         
