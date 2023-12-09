@@ -105,10 +105,24 @@ a{
     border: white solid medium;
     grid-column: 3;
     grid-row: 1;
-    display:flex;
-    justify-self: center;
+    display: flex;
+    justify-self: flex-end;
     align-self: center;
     align-items: center;
     cursor: pointer;
+    margin-right: 10px;
     padding: 0 10px 0 10px;
+}
+#pop-transfer, #pop-istoric, #pop-setari{
+    display: none;
+    grid-column: 2/3;
+    grid-row: 2;
+    height: auto;
+    width: auto;
+    text-align: center;
+}
+.text_pop{
+    display: block;
+    color: BurlyWood;
+    justify-self: center;
 }
