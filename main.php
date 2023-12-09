@@ -35,5 +35,11 @@
                 <div id = "setari"> </div>
             </div>
         </div>
+        <div id = "pop-content">
+            <div id = "background"> </div>
+            <div id = "space"> 
+                <div id = "pop-exit"> close </div>    
+            </div>
+        </div>
     </body>
 </html>

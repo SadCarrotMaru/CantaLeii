@@ -76,3 +76,39 @@ a{
     color: BurlyWood;
     justify-self: center;
 }
+
+#background{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(120,120,120,0.5);
+}
+#space{
+    display: none;
+    position: fixed;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 70px 1fr;
+    top: 10vh;
+    left: 20vw;
+    width: 60vw;
+    height: 80vh;
+    background-color: beige;
+    border: white solid large;
+}
+#pop-exit{
+    height: 50px;
+    background-color: BurlyWood;
+    color: white;
+    border: white solid medium;
+    grid-column: 3;
+    grid-row: 1;
+    display:flex;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
