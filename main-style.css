@@ -97,6 +97,7 @@ a{
     height: 80vh;
     background-color: beige;
     border: white solid large;
+    
 }
 #pop-exit{
     height: 50px;
@@ -120,6 +121,7 @@ a{
     height: auto;
     width: auto;
     text-align: center;
+    overflow-y: scroll;
 }
 .text_pop{
     display: block;
