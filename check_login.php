@@ -80,21 +80,25 @@ if(count($_POST)>0) {
                 }
                 $q3 ="update ACC_IS_ECO set eco_travel_points = ".$eco_pts." WHERE account_id =".$acc_id.";";
                 $link->query($q3);
-                $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",".$date.");";
+                echo $date;
+                echo $most_recent;
+                $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.", '".$date."');";
+                echo $q4;
                 $link->query($q4);
                 //then we redirect to livada de meri
                 ///next
                 $_SESSION['qrcode']='none';
+                $_SESSION['badlogin']='false';
                 header("Location: eco.html");
             }
             else{
+                $_SESSION['timeout']='true';
+                $_SESSION['badlogin']='false';
                 //is not valid
                 $_SESSION['qrcode']='none';
                 echo "you re on timeout!";
+                header("Location: index.php");	
             }
-
-
-
 
             
         }
@@ -104,7 +108,9 @@ if(count($_POST)>0) {
         
     }
     else{
+        $_SESSION['badlogin']='true';
         echo "Nu am gasit acest username cu aceasta parola ;(";
+        header("Location: index.php");	
     }
     // header("Location: login_check.php");		
     exit();

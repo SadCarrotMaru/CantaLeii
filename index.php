@@ -27,6 +27,12 @@
       else{
         $_SESSION['qrcode']='none';
       }
+      if(isset($_SESSION['badlogin']) && $_SESSION['badlogin']=='true'){
+        echo "<a class='error'>Bad login Credentials</a>";
+      }
+      if(isset($_SESSION['timeout']) && $_SESSION['timeout']=='true'){
+        echo "<a class='error'>You are on a timeout!</a>";
+      }
     ?>
       <FORM method="POST" action='check_login.php'>
         <table border=0 width="40%" align="center">
