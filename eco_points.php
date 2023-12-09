@@ -8,7 +8,9 @@ $dbname = "neverlanes_cantaleii";
 require "header.php";
 echo $_SESSION['username'];
 echo $_SERVER['REQUEST_URI'];
-echo $_SERVER['HTTPS'];
+echo $_SERVER['PHP_SELF'];
+echo $_SERVER['HTTP_REFERER'];
+//echo $_SERVER['HTTPS'];
 // print_r($_POST);
 $link = mysqli_connect($servername, $username, $password, $dbname);
 

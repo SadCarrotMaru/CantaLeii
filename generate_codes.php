@@ -37,13 +37,43 @@ if (!$link) {
     echo "Error: Unable to connect to MySQL.";
     exit;
 }
+    $codes_locs = [];
+    $locs ='0';
+    $codes ='0';
 
-    $generatedCodes = generateUniqueCodes(16);
+    for($i=0;$i<16;$i++){
+        $query1 = "select qr_code from LOCATIONS WHERE location_id= ".($i+1).";";
+        $query2 = "select location_name from LOCATIONS WHERE location_id= ".($i+1).";";
+
+        //echo $query;
+        $result1 = $link->query($query1);
+        $result2 = $link->query($query2);
+        
+        if($result1->num_rows >0){
+            while($row = $result1->fetch_assoc()) { 
+                $codes =$row["qr_code"];
+                echo $row["qr_code"]. "<br>"; 
+              } 
+        }
+        if($result2->num_rows >0){
+            while($row = $result2->fetch_assoc()) { 
+                $locs =$row["location_name"];
+                echo $row["location_name"]. "<br>"; 
+              } 
+        }
+        $codes_locs[] = ($locs.' '.$codes);
+    }
+    for($i=0;$i<16;$i++){
+        echo $codes_locs[$i]."<br>";
+    }
+    
+
+    /*$generatedCodes = generateUniqueCodes(16);
     for($i=0;$i<16;$i++){
         $query = "update LOCATIONS SET qr_code ='".$generatedCodes[$i]."' WHERE location_id= ".($i+1).";";
         echo $query;
-        //$link->query($query);
-    }
+        $link->query($query);
+    }*/
     
     
 $metroNames = [
