@@ -36,7 +36,7 @@ if(count($_POST)>0) {
             //database stuff
 
             //get the location id from the qrcode
-            $actual_qr = str_replace('"', '', $_SESSION['qrcode']);
+            $actual_qr = str_replace('"', '', urldecode($_SESSION['qrcode']));
             $q0="select location_id from LOCATIONS WHERE qr_code='".$actual_qr."';";
             echo $q0;
             $location_id_res = $link->query($q0);
