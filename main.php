@@ -15,6 +15,10 @@
                 <?php
                     require "header.php";
                     echo '<a class="click">'.$_SESSION['username'].'</a>';
+                    $servername = "mysql-neverlanes.alwaysdata.net";
+                    $username = "336043";
+                    $password = "m.2a*Z!#mV!9vWH";
+                    $dbname = "neverlanes_cantaleii";  
                 ?>
                 
                 <a href="logout.php" class = "click"> Log out </a>
@@ -49,6 +53,27 @@
                     <?php 
                         echo '<a class = "text_pop"> Istoric Tranzactii </a>';
                         echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                        $link = mysqli_connect($servername, $username, $password, $dbname);
+                        $query_id = "SELECT account_id FROM ACCOUNTS a JOIN CLIENTS c ON (a.client_id = c.client_id) WHERE UPPER(c.username) = UPPER('".$_SESSION['username']."');";
+                        $conturi = $link->query($query_id);
+                        $res = [];
+                        foreach($conturi as $cont){
+                            $query_tr = "SELECT * FROM TRANSACTIONS where account_id = ".$cont['account_id']." OR second_party_id = ".$cont['account_id'].";";
+                            $tr = $link->query($query_tr);
+                            foreach($tr as $row){
+                                $res []= $row; 
+                            }
+                        }
+                        foreach($res as $row){
+                            echo '<a class = "text_pop">'.$row['transaction_id'].' '.$row['date'].'</a>';
+                        }
+                        if (!$link) {
+                            echo "Error: Unable to connect to MySQL.";
+                            exit;
+                        }
+
+                        mysqli_close($link);
+
                     ?>
                 </div>  
                 <div id = "pop-setari"> 
