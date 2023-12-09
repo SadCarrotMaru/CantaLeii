@@ -32,13 +32,31 @@
                 <div id = "eco"> <a> Eco </a> </div>
             </div>
             <div id = "four"> 
-                <div id = "setari"> </div>
+                <div id = "setari" class = "button"> </div>
             </div>
         </div>
         <div id = "pop-content">
             <div id = "background"> </div>
             <div id = "space"> 
-                <div id = "pop-exit"> close </div>    
+                <div id = "pop-exit"> close </div>  
+                <div id = "pop-transfer">
+                    <?php 
+                        echo '<a class = "text_pop"> Transfer </a>';
+                        echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                    ?>
+                </div>
+                <div id = "pop-istoric">
+                    <?php 
+                        echo '<a class = "text_pop"> Istoric Tranzactii </a>';
+                        echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                    ?>
+                </div>  
+                <div id = "pop-setari"> 
+                    <?php 
+                        echo '<a class = "text_pop"> Setari </a>';
+                        echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                    ?>
+                </div>
             </div>
         </div>
     </body>
