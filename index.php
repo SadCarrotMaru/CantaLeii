@@ -29,9 +29,11 @@
       }
       if(isset($_SESSION['badlogin']) && $_SESSION['badlogin']=='true'){
         echo "<a class='error'>Bad login Credentials</a>";
+        $_SESSION['badlogin']='false';
       }
       if(isset($_SESSION['timeout']) && $_SESSION['timeout']=='true'){
         echo "<a class='error'>You are on a timeout!</a>";
+        $_SESSION['timeout']='false';
       }
     ?>
       <FORM method="POST" action='check_login.php'>
