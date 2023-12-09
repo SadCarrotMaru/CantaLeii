@@ -1,0 +1,69 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+#content{
+    height: 100vh;
+    background-color: beige;
+    display: grid;
+    grid-template-columns: 10vw 3fr 7fr 10vw;
+}
+#one{
+    padding: 5% 5% 5% 5%;
+}   
+#two{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 10% 5% 5% 5%;
+}
+#three{
+    display: grid;
+    grid-template-rows: 3fr 3em 3em 2fr;
+    padding: 10% 5% 5% 5%;
+}
+#four{
+    padding: 5% 5% 5% 5%;
+    display: flex;
+    justify-content: center;
+}
+#setari{
+    background-color: BurlyWood;
+    border-radius: 50%;
+    border: white solid medium;
+    height: 2em;
+    width: 2em;
+}
+
+.button{
+    background-color: BurlyWood;
+    height: 20vh;
+    border: white solid medium;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#one > .button{
+    height: auto;
+}
+#card-container{
+    background-color: BurlyWood;
+}
+#eco{
+    background-color: MediumSpringGreen;
+    border: white solid medium;
+    width: 70%;
+    justify-self: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    color: white;
+    font-size: 1.5em;
+}
+.click{
+    color: BurlyWood;
+    justify-self: center;
+}
