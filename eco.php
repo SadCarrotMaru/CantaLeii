@@ -57,7 +57,7 @@
     <div id="livada">
         <!-- <img id="back" src="back.png" alt="Back"> -->
         <h3>Ce este Livada?</h3><br>
-        <p>Livada este spatiul tau virtual verde. Aici poti aduna padurea ta personala. Cum? Traind ecologic alaturi de banca noastra! Tot ce e nevoie sa faci este ca in timp ce astepti metroul sa scanezi codurile QR din statie, sa te loghezi in contul de banca si automat noi iti vom adauga un punct travel eco. La 10 puncte eco vei primi un copacel in livada, iar la 500 de puncte eco o surpriza din partea sponsorilor nostri iubitori de natura.</p>
+        <p>Livada este spatiul tau virtual verde. Aici poti aduna padurea ta personala. Cum? Traind ecologic alaturi de banca noastra! Ai doua modalitati de a-ti creste livada. Poti din contul tau de economii RoundUp sa alegi sa redirectionezi o parte din bani catre unul dintre sponsorii nostri, fiecare leu este un punct eco. Altfel, in timp ce astepti metroul sa scanezi codurile QR plasate de noi in statie, sa te loghezi in contul de banca si automat noi iti vom adauga un punct travel eco. Punctele se vor aduna din ambele surse. La 10 puncte eco vei primi un copacel in livada, iar la 100 de puncte eco o surpriza din partea sponsorilor nostri iubitori de natura.</p>
         <h3>Angajamentul nostru</h3><br>
         <p>La fiecare 1000 de puncte stranse de clientii bancii noastre, promitem sa plantam un copac prin intermediul firmelor noastre partenere.</p>
         <h3>De ce este important sa calatorim cu Metroul?</h3>
