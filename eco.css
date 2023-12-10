@@ -26,6 +26,7 @@ body {
 }
 
 #wrapper2{
+    color:white;
     display: none;
     grid-template-columns: 1fr 3fr 1fr;
 }
@@ -57,9 +58,10 @@ body {
 } */
 
 #roundup, #livada, #metrou {
+    color:white;
     grid-column: 2;
     display: none;
-    background-color: rgba(0,104,56, 0.3);
+    background-color: rgba(0,104,56, 0.5);
     padding: 0 10vw 0 10vw;
     width: auto;
     height: 100vh;
@@ -101,4 +103,7 @@ body {
 
 .no_apple{
     display: none;
+}
+a{
+    color: white;
 }
