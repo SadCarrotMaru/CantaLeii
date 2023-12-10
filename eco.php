@@ -48,11 +48,59 @@
     </div>
     <div id="livada">
         <!-- <img id="back" src="back.png" alt="Back"> -->
-        <p> Text232 1 </p>
+        <p>s</p>
     </div>
     <div id="metrou">
         <!-- <img id="back" src="back.png" alt="Back"> -->
-        <p> Te4214xt 1 </p>
+        <?php
+                    require "header.php";
+                    echo '<a class="click">'.$_SESSION['username'].'</a>';
+                    $servername = "mysql-neverlanes.alwaysdata.net";
+                    $username = "336043";
+                    $password = "m.2a*Z!#mV!9vWH";
+                    $dbname = "neverlanes_cantaleii";  
+                ?>
+        <?php
+            echo '<a class = "text_roundup"> Eco RoundUp </a><br>';
+            //echo '<a class = "text_roundup">'.$_SESSION['username'].'</a>';
+            //afisam optiunea curenta de roundup 
+            $link = mysqli_connect($servername, $username, $password, $dbname);
+            $q = "select * from ACCOUNTS a join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=2;";
+            $res = $link->query($q);
+            //print_r($res);
+            $soldru=-1;
+            $pct=-1;
+            if($res->num_rows>0){
+                while($row = $res->fetch_assoc()) {
+                    $soldru = $row['sold'];
+                }
+            }
+            $query = "select * from ACCOUNTS a join ACC_IS_ECO e on(a.account_id = e.account_id) join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=3;";
+            $res = $link->query($query);
+            //print_r($res);
+            if($res->num_rows>0){
+                
+                while($row = $res->fetch_assoc()) {
+                    $pct = $row['eco_travel_points'];
+                    $fn = $row["first_name"]; 
+                    $ln =$row["last_name"]; 
+                    $rubool = $row["roundup"];
+                    if($rubool == 1){
+                        $rubool ="Your roundup is active!";
+                    }
+                    else{
+                        $rubool ="Your roundup is not active!";
+                    }
+                    $ecoruper = $row["eco_roundup_percent"];
+                    echo '<a class= "text_roundup">Soldul din contul Round_up normal este '.$soldru.'</a><br>';
+                    echo '<a class= "text_roundup">Soldul din contul Round_up eco este '.$row['sold'].'</a><br>';
+                    echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
+                    echo '<a class = "text_roundup">'.$rubool.' </a><br>';
+                    echo '<a class = "text_roundup"> Your current eco roundup percent is: '.$ecoruper.'</a><br>';
+                    echo '<a class = "text_roundup"> You have :'.$pct.' eco travel points.</a><br>';
+                  } 
+            }
+        ?>
     </div>
 </div>
 <footer>
