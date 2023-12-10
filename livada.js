@@ -71,8 +71,7 @@ function check_collision(x, y, w, h, cnt)
 
 function generate_apple(treeDiv, x, y, radius, size){
     const apple = document.createElement('img');
-    // var new_radius = Math.random() * radius;
-    var new_radius = radius;
+    var new_radius = Math.random() * radius;
     var direction = Math.random() * Math.PI;
     random_apple = getRandInt(4);
     switch(random_apple){
