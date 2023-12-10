@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&display=swap');
+
 html,body{
     margin: 0;
     padding: 0; 
 }
 
 body {
-    font-family: "Comic Sans MS", cursive;
+    font-family: 'Noto Serif Balinese', serif;
     font-weight: bold;  
     background-color: rgb(103, 207, 133);
     overflow: hidden
@@ -31,6 +33,7 @@ body {
 #b_roundup, #b_metrou, #b_livada {
     background-color: white;
     display: block;
+    font-family: 'Noto Serif Balinese', serif;
     font-weight: bold;
     padding: 10px 15px 10px 15px;
     margin: 5vh;
@@ -53,14 +56,27 @@ body {
 #roundup, #livada, #metrou {
     grid-column: 2;
     display: none;
+    background-color: rgba(0,104,56, 0.3);
     padding: 0 10vw 0 10vw;
     width: auto;
-    margin-top: 5vh;
-    height: 95vh;
+    height: 100vh;
     text-align: center;
     overflow-y: auto;
 }
 
+#pop-exit{
+    height: 50px;
+    background-color: rgba(0,104,56);
+    color: rgb(141,198,63);
+    border: white solid medium;
+    display: flex;
+    justify-self: flex-end;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0 10px 0 10px;
+}
 
 .falling_apple{
     animation-timing-function: ease-in;

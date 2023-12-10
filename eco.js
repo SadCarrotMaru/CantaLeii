@@ -36,13 +36,22 @@ function eco(){
         wrapper.style.display = 'none';
     });
     document.getElementById("b_metrou").addEventListener("click", event => {
-        metrou.style.display = 'flex';
+        metrou.style.display = 'block';
+        wrapper2.style.display = 'grid';
         wrapper.style.display = 'none';
     });
     document.getElementById("b_livada").addEventListener("click", event => {
-        livada.style.display = 'flex';
+        livada.style.display = 'block';
+        wrapper2.style.display = 'grid';
         wrapper.style.display = 'none';
     });
+    document.getElementById("pop-exit").onclick = function(){
+        roundup.style.display = 'none';
+        metrou.style.display = 'none';
+        livada.style.display = 'none';
+        wrapper2.style.display = 'none';
+        wrapper.style.display = 'flex';
+    }
 }
 
    
