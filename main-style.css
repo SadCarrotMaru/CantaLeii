@@ -131,3 +131,6 @@ a{
 .info{
     display: none;
 }
+.click{
+    cursor:pointer;
+}
