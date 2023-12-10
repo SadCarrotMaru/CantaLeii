@@ -26,7 +26,7 @@
             </div>
             <div id = "two">
                 <div id = "transfer-button" class = "button"> <a> Transfer </a> </div>
-                <div class = "button"> <a> Date Card </a> </div>
+                <div class = "button" id = "DaCa"> <a> Date Card </a> </div>
                 <div class = "button"> <a> Istoric Tranzactii </a> </div>
                 <div class = "button"> <a> Round Up </a> </div>
             </div>

@@ -5,6 +5,13 @@ var pink="rgb(236, 158, 180)";
 var red= "rgb(218, 88, 125)";
 
 window.onload = function () {
+    sessionStorage["card_info"] = "hidden";
+    document.getElementById("DaCa").addEventListener("click", event => {
+        if(sessionStorage["card_info"]=="hidden") sessionStorage["card_info"]="shown";
+            else sessionStorage["card_info"]="hidden";
+        console.log(sessionStorage["card_info"]);
+        draw(h,w);
+    })
     let buttons = document.getElementsByClassName("button");
     let pop_bkg = document.getElementById("background");
     let pop_space = document.getElementById("space");
@@ -103,7 +110,7 @@ window.onload = function () {
         //iban=document.getElementById("iban").innerHTML();
         cnum=document.getElementById("card_nr");
         valid=document.getElementById("valid_thru").innerHTML;
-        cvc=document.getElementById("cvc").innerHtML;
+        cvc=document.getElementById("cvc").innerHTML;
         sold=document.getElementById("sold").innerHTML;
         fn=document.getElementById("first_name").innerHTML;
         ln=document.getElementById("last_name").innerHTML;
@@ -115,7 +122,6 @@ window.onload = function () {
             drawRoundedRect(ctx, 2, 2, w - 4, h - 4, cornerRadius);
             var text = cnum.innerHTML;
             console.log(text);
-            sessionStorage["card_info"] = "shown";
             if(sessionStorage["card_info"] == "shown")
             {
                 drawText(ctx, text, 20, (2 / 3) * h, 30, "black");
