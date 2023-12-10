@@ -102,3 +102,10 @@ a{
 #total{
     display:none;
 }
+
+#sag_spate{
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

@@ -135,7 +135,8 @@ function generate_trees(user_eco_points, min_tree, max_tree)
 {
     console.log(width);
     console.log(height);
-    trees = user_eco_points / 10;
+    trees = Math.trunc(user_eco_points / 10);
+    console.log(trees);
     for(var i = 0; i < trees; i++)
         generate_tree(min_tree, max_tree);
 }

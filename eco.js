@@ -24,6 +24,10 @@ function error(err)
 function eco(){
     navigator.geolocation.getCurrentPosition(success, error, options);
 
+    document.getElementById("sag_spate").addEventListener("click", event =>{
+        window.location.href = "main.php";
+        console.log("!!");
+    })
     let wrapper = document.getElementById("wrapper");
     let wrapper2 = document.getElementById("wrapper2");
     let roundup = document.getElementById("roundup");
