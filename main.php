@@ -20,7 +20,18 @@
                     $password = "m.2a*Z!#mV!9vWH";
                     $dbname = "neverlanes_cantaleii";  
                 ?>
-                <?php
+                
+
+                <a href="logout.php" class = "click"> Log out </a>
+            </div>
+            <div id = "two">
+                <div id = "transfer-button" class = "button"> <a> Transfer </a> </div>
+                <div class = "button"> <a> Date Card </a> </div>
+                <div class = "button"> <a> Istoric Tranzactii </a> </div>
+                <div class = "button"> <a> Round Up </a> </div>
+            </div>
+            <div id = "three">
+            <?php
     function set_card_session($acc_id,$iban,$cnum,$valid,$cvc){
         $_SESSION['acc_id']=$acc_id;
         $_SESSION['iban']=$iban;
@@ -54,7 +65,7 @@
         $cnum=-1;
         $valid=-1;
         $cvc=-1;
-        $q1="select account_id, IBAN, card_number, valid_thru, cvc FROM ACCOUNTS where client_id = '".$_SESSION['client_id']."' and account_type_id = 1;";
+        $q1="select first_name, last_name, account_id, IBAN, card_number, valid_thru, cvc, sold,account_type_id FROM ACCOUNTS a join CLIENTS c on(c.client_id = a.client_id) where c.client_id = '".$_SESSION['client_id']."' and account_type_id = 1;";
         $res = $link->query($q1);
                         
         if($res->num_rows >0){
@@ -64,27 +75,28 @@
                 $cnum=$row["card_number"];
                 $valid=$row["valid_thru"];
                 $cvc=$row["cvc"];
-                print_r($row["account_id"]. "<br>"); 
-                print_r($row["IBAN"]. "<br>"); 
-                print_r($row["card_number"]. "<br>"); 
-                print_r($row["valid_thru"]. "<br>"); 
-                print_r($row["cvc"]. "<br>"); 
+                $sold=$row["sold"];
+                $acc_type=$row['account_type_id'];
+                echo "<a class='info'>".$row["account_id"]. "</a>"; 
+                echo "<a class='info' id='iban'>".$row["IBAN"]. "</a>"; 
+                echo "<a class='info' id='card_nr'>".$row["card_number"]. "</a>"; 
+                echo "<a class='info' id='valid_thru'>".$row["valid_thru"]. "</a>"; 
+                echo "<a class='info' id='cvc'>".$row["cvc"]. "</a>"; 
+                echo "<a class='info' id='sold'>".$row["sold"]. "</a>"; 
+                echo "<a class='info' id='type_id'>".$row["account_type_id"]. "</a>"; 
+                echo "<a class='info' id='first_name'>".$row["first_name"]. "</a>"; 
+                echo "<a class='info' id='last_name'>".$row["last_name"]. "</a>"; 
 
             } 
         }
-        set_card_session($acc_id,$iban,$cnum,$valid,$cvc);
+
+        //set_card_session($acc_id,$iban,$cnum,$valid,$cvc);
     }
-?>
-                <a href="logout.php" class = "click"> Log out </a>
-            </div>
-            <div id = "two">
-                <div id = "transfer-button" class = "button"> <a> Transfer </a> </div>
-                <div class = "button"> <a> Date Card </a> </div>
-                <div class = "button"> <a> Istoric Tranzactii </a> </div>
-                <div class = "button"> <a> Round Up </a> </div>
-            </div>
-            <div id = "three">
-                <div id = "card-container"> </div>
+    get_card_data();
+    ?>
+                <div id = "card-container"> 
+                    <!--<canvas id="canvmap" width="300" height="300"></canvas>-->
+                </div>
                 <a class = "click"> (SOLD) </a>
                 <a class = "click"> (IBAN) </a>
                 <div id = "eco"> <a> Eco </a> </div>

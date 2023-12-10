@@ -6,7 +6,7 @@ html, body{
     height: 100vh;
     background-color: beige;
     display: grid;
-    grid-template-columns: 10vw 3fr 7fr 10vw;
+    grid-template-columns: 10vw 1fr 500px 10vw;
 }
 #one{
     display: flex;
@@ -21,7 +21,7 @@ html, body{
 }
 #three{
     display: grid;
-    grid-template-rows: 3fr 3em 3em 2fr;
+    grid-template-rows: 300px 3em 3em 1fr;
     padding: 10% 5% 5% 5%;
 }
 #four{
@@ -127,4 +127,7 @@ a{
     display: block;
     color: BurlyWood;
     justify-self: center;
+}
+.info{
+    display: none;
 }
