@@ -126,7 +126,7 @@ if(count($_POST)>0) {
                 $link->query($q4);
                 //then we redirect to livada de meri
                 $_SESSION['qrcode']='none';
-                header("Location: eco.html");
+                header("Location: eco.php");
             }
             else{
                 $_SESSION['qrcode']='none';
