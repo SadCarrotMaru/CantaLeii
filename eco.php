@@ -103,7 +103,7 @@
                     echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
                     echo '<a class = "text_roundup">'.$rubool.' </a><br>';
                     echo '<a class = "text_roundup"> Procentul din RoundUp care se duce spre contul Eco este: '.$ecoruper.'</a><br>';
-                    echo '<a class = "text_roundup"> Ai :'.$pct.' puncte eco travel.</a><br>';
+                    echo '<a class = "text_roundup"> Ai : '.$pct.' puncte eco travel.</a><br>';
                   } 
             }
         ?>
