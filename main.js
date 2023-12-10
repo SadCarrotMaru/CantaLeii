@@ -68,7 +68,7 @@ window.onload = function () {
         document.getElementById("pop-roundup").style.display = 'none';
     }
     document.getElementById("eco").onclick = function(){
-        window.location.href = "eco.html";
+        window.location.href = "eco.php";
     }
     var harta= document.getElementById("card-container");
     var ha = document.createElement("canvas");
