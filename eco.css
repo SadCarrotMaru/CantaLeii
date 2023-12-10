@@ -10,31 +10,37 @@ body {
     overflow: hidden
 }
 
-#wrapper{
+#wrapper, #wrapper2{
     position: absolute;
+    top:0;
+    left:0;
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    margin: 0;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
+#wrapper2{
+    display: none;
+    grid-template-columns: 1fr 3fr 1fr;
+}
 
-button {
-    background-color: yellow;
+#b_roundup, #b_metrou, #b_livada {
+    background-color: white;
+    display: block;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 5vh;
     width: 10vw;
     height: 10vh;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#back {
+/* #back {
     display: none;
     position: absolute;
     top: 2vh;
@@ -42,20 +48,19 @@ button {
     height: 10vh;
     width: 5vw;
     cursor: pointer;
+} */
+
+#roundup, #livada, #metrou {
+    grid-column: 2;
+    display: none;
+    padding: 0 10vw 0 10vw;
+    width: auto;
+    margin-top: 5vh;
+    height: 95vh;
+    text-align: center;
+    overflow-y: auto;
 }
 
-#div_eco_round_up,
-#livada,
-#metrou {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    max-width: 90vw; 
-    margin: 0 auto; 
-    display: none;
-}
 
 .falling_apple{
     animation-timing-function: ease-in;
