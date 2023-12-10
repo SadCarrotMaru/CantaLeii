@@ -2,6 +2,18 @@ function getRandInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function areSquaresColliding_3(square1TL, square1BR, square2TL, square2BR) {
+    if (square1BR.x < square2TL.x || square1TL.x > square2BR.x) {
+        return false; 
+    }
+    if (square1BR.y < square2TL.y || square1TL.y > square2BR.y) {
+        return false;
+    }
+    if (square1TL.y > square2TL.y) 
+        return false;
+    return true;
+}
+
 function areSquaresColliding_2(square1TL, square1BR, square2TL, square2BR) {
     if (square1BR.x < square2TL.x || square1TL.x > square2BR.x) {
         return false; 
@@ -39,13 +51,19 @@ function check_collision(x, y, w, h, cnt)
         var heightValue = parseInt(treeElements[i].style.height, 10) ;
         var treeITL = {x: x1, y: y1};
         var treeIBR = {x: x1+widthValue, y:y1+heightValue};
-        if(cnt < 25) {
+        if(cnt < 15) {
             if(areSquaresColliding(treeTL,treeBR,treeITL,treeIBR) == true)
                 return true;
         }
         else {
-            if(areSquaresColliding_2(treeTL,treeBR,treeITL,treeIBR) == true)
-                return true;
+            if(cnt < 30){
+                if(areSquaresColliding_2(treeTL,treeBR,treeITL,treeIBR) == true)
+                    return true;
+            }
+            else{
+                if(areSquaresColliding_3(treeTL,treeBR,treeITL,treeIBR) == true)
+                    return true;
+            }   
         }        
     }
     return false;
@@ -69,7 +87,8 @@ function generate_apple(treeDiv, x, y, radius, size){
     apple.style.top = (y + (-1) * Math.sin(direction) * new_radius - size / 2) + 'px';
     apple.style.width = size + 'px';
     apple.style.height = size + 'px';
-    apples.push(apple);
+    apple.classList.add("tree_apple");
+    // apples.push(apple);
     treeDiv.appendChild(apple);
 }
 
@@ -108,6 +127,7 @@ function generate_tree(min_tree, max_tree) {
     for(let i = 0; i <= nr_apples; i++){
         generate_apple(treeDiv, x + size/2, y + size/2 + offset_y, size/2 + offset_size, 20);
     }
+    treeDiv.style.overflow = 'hidden';
     document.getElementById('tree_container').appendChild(treeDiv);
 }
 
@@ -133,14 +153,28 @@ window.onload = function(){
     width = Math.max( body.scrollWidth, body.offsetWidth, 
                             html.clientWidth, html.scrollWidth, html.offsetWidth );
 
-    var points = 92, min_tree = 150, max_tree = 300;
+    var points = 52, min_tree = 150, max_tree = 300;
     generate_trees(points, min_tree, max_tree);
+    apples = Array.from(document.getElementsByClassName("tree_apple"));
     apple_maybe_fall = setInterval(function () {
         if (apples.length == 0)
           clearInterval(apple_maybe_fall);
         else{
-            for(let i = 0; i < apples.length; i++)
-                console.log(i);
+            console.log(apples.length);
+            for(let i = 0; i < apples.length; i++){
+                var rando = Math.random() < 0.05; 
+                console.log(rando);
+                if(rando){
+                    apples[i].classList.remove("tree_apple");
+                    apples[i].classList.add("falling_apple");
+                    setTimeout(function () {
+                        apples[i].classList.remove("falling_apple");
+                        apples[i].classList.add("no_apple");
+                        apples.splice(i, 1);                       
+                    }, 8000);
+                    break;
+                }
+            }
         }
       }, 1000);
 }

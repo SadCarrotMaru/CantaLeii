@@ -7,6 +7,7 @@ body {
     font-family: "Comic Sans MS", cursive;
     font-weight: bold;  
     background-color: rgb(103, 207, 133);
+    overflow: hidden
 }
 
 #wrapper{
@@ -19,7 +20,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 
 button {
@@ -57,5 +57,24 @@ button {
     display: none;
 }
 
+.falling_apple{
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-name: fall1;
+    animation-duration: 8s;
+}
 
+@keyframes fall1 {
+  0%{
+    transform: translate(0vw, 0vh);
+    opacity: 100%;
+  }  
+  100%{
+    transform: translate(0vw, 120vh);
+    opacity: 100%;
+  }
+}
 
+.no_apple{
+    display: none;
+}
