@@ -122,7 +122,7 @@ if(count($_POST)>0) {
                 }
                 $q3 ="update ACC_IS_ECO set eco_travel_points = ".$eco_pts." WHERE account_id =".$acc_id.";";
                 $link->query($q3);
-                $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",".$date.");";
+                $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",'".$date."');";
                 $link->query($q4);
                 //then we redirect to livada de meri
                 $_SESSION['qrcode']='none';

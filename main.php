@@ -101,25 +101,65 @@
                     <?php 
                         echo '<a class = "text_pop"> Transfer </a>';
                         echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                        echo '<FORM method="POST" action="check_transaction.php">
+                        <table border=0 width="40%" align="center">
+                          <tr>
+                              <td>Suma*: </td>
+                              <td><INPUT TYPE="text" name="suma"></td>
+                          </tr>
+                          <tr>
+                              <td>IBAN destinatar*: </td>
+                              <td><INPUT TYPE="text" name="dest"></td>
+                          </tr>
+                          <tr>
+                              <td>Password*: </td>
+                              <td><INPUT TYPE="text" name="password"></td>
+                          </tr>
+                          <tr>
+                            <td><INPUT TYPE="reset" VALUE="reset"></td>
+                            <td><INPUT TYPE="submit" VALUE="send"></td>
+                          </tr>
+                          
+                         </table>
+                         </form>'
                     ?>
                 </div>
                 <div id = "pop-istoric">
                     <?php 
                         echo '<a class = "text_pop"> Istoric Tranzactii </a>';
                         echo '<a class = "text_pop">'.$_SESSION['username'].'</a>';
+                        //tranzactii out
                         $link = mysqli_connect($servername, $username, $password, $dbname);
                         $query_id = "SELECT account_id FROM ACCOUNTS a JOIN CLIENTS c ON (a.client_id = c.client_id) WHERE UPPER(c.username) = UPPER('".$_SESSION['username']."');";
                         $conturi = $link->query($query_id);
                         $res = [];
                         foreach($conturi as $cont){
-                            $query_tr = "SELECT * FROM TRANSACTIONS where account_id = ".$cont['account_id']." OR second_party_id = ".$cont['account_id'].";";
+                            $query_tr = "SELECT * from ACCOUNTS a join TRANSACTIONS t on (a.account_id = t.account_id) JOIN ACCOUNTS b on (b.account_id = t.second_party_id) JOIN CLIENTS c on (c.client_id = b.client_id) where a.account_id = ".$cont['account_id'].";";
+                            //$query_tr = "SELECT * FROM TRANSACTIONS where account_id = ".$cont['account_id'].";";
                             $tr = $link->query($query_tr);
                             foreach($tr as $row){
                                 $res []= $row; 
                             }
                         }
                         foreach($res as $row){
-                            echo '<a class = "text_pop">'.$row['transaction_id'].' '.$row['date'].'</a>';
+                            echo '<a class = "text_pop" style=color:red> Catre '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
+
+                        }
+                        //tranzactii in
+                        $query_id = "SELECT account_id FROM ACCOUNTS a JOIN CLIENTS c ON (a.client_id = c.client_id) WHERE UPPER(c.username) = UPPER('".$_SESSION['username']."');";
+                        $conturi = $link->query($query_id);
+                        $res = [];
+                        foreach($conturi as $cont){
+                            $query_tr = "SELECT * from ACCOUNTS a join TRANSACTIONS t on (a.account_id = t.second_party_id) JOIN ACCOUNTS b on (b.account_id = t.account_id) JOIN CLIENTS c ON (c.client_id = b.client_id) where a.account_id = ".$cont['account_id'].";";
+                            $tr = $link->query($query_tr);
+                            foreach($tr as $row){
+                                $res []= $row; 
+                            }
+                        }
+                        foreach($res as $row){
+                            //selectam second party din tranzactia asta, respectiv numele omului
+                            
+                            echo '<a class = "text_pop" style=color:green> De la '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
                         }
                         if (!$link) {
                             echo "Error: Unable to connect to MySQL.";
