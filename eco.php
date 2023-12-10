@@ -53,6 +53,7 @@
         <t3> <b> Friends of the Earth </b></t3>
         <img src = "sponsori/friends_of_the_earth.png" width="300em" height="300em" >
         <p> This organization is an international network of environmental organizations in 74 countries. They work to protect the planet from environmental degradation and to create a sustainable future </p>
+        <br><br>
     </div>
     <div id="livada">
         <!-- <img id="back" src="back.png" alt="Back"> -->
