@@ -121,7 +121,7 @@ a{
     height: auto;
     width: auto;
     text-align: center;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .text_pop{
     display: block;

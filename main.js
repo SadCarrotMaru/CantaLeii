@@ -115,8 +115,21 @@ window.onload = function () {
             drawRoundedRect(ctx, 2, 2, w - 4, h - 4, cornerRadius);
             var text = cnum.innerHTML;
             console.log(text);
-            drawText(ctx, text, 20, (2 / 3) * h, 30, "black");
-            drawText(ctx, str, 20, (2.5/3) *h,16,"black");
+            sessionStorage["card_info"] = "shown";
+            if(sessionStorage["card_info"] == "shown")
+            {
+                drawText(ctx, text, 20, (2 / 3) * h, 30, "black");
+                drawText(ctx, str, 20, (2.5/3) *h,16,"black");
+                str2 = "CVC: " + cvc;
+                drawText(ctx, str2, 300, (2.5/3) * h,16,"black");
+            }
+            else
+            {
+                str = fn + " " + ln;
+                text_ = "**** **** **** " + text[15] + text[16] + text[17] + text[18];
+                drawText(ctx, text_, 20, (2 / 3) * h, 30, "black");
+                drawText(ctx, str, 20, (2.5/3) *h,16,"black");
+            }
         }
 }
 

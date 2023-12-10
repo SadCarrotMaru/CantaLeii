@@ -37,14 +37,14 @@
         $_SESSION['iban']=$iban;
         $_SESSION['cnum']=$cnum;
         $_SESSION['valid']=$valid;
-        $_SESSOIN['cvc']=$cvc;
+        $_SESSION['cvc']=$cvc;
     }
     function close_card_session($acc_id,$iban,$cnum,$valid,$cvc){
         $_SESSION['acc_id']=-1;
         $_SESSION['iban']=-1;
         $_SESSION['cnum']=-1;
         $_SESSION['valid']=-1;
-        $_SESSOIN['cvc']=-1;
+        $_SESSION['cvc']=-1;
     }
     function get_card_data(){
         $servername = "mysql-neverlanes.alwaysdata.net";
