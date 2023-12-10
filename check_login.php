@@ -132,6 +132,7 @@ if(count($_POST)>0) {
                 $_SESSION['qrcode']='none';
                 //is not valid
                 echo "you re on timeout!";
+                $_SESSION['timeout']='true';
                 header("Location: main.php");
             }
             }
@@ -140,7 +141,8 @@ if(count($_POST)>0) {
                     $_SESSION['qrcode']='none';
                     //not valid -- location failed
                     echo "you are not near the qr code!";
-                    header("Location: main.php");
+                    $_SESSION['baddistance']='true';
+                    header("Location: index.php");
                 }
 
 
@@ -156,6 +158,8 @@ if(count($_POST)>0) {
     }
     else{
         echo "Nu am gasit acest username cu aceasta parola ;(";
+        $_SESSION['badlogin']='true';
+        header("Location: index.php");
     }
     // header("Location: login_check.php");		
     exit();

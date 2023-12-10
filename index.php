@@ -36,6 +36,10 @@
         echo "<a class='error'>You are on a timeout!</a>";
         $_SESSION['timeout']='false';
       }
+      if(isset($_SESSION['baddistance']) && $_SESSION['baddistance']=='true'){
+        echo "<a class='error'>You are not near the qr code!</a>";
+        $_SESSION['baddistance']='false';
+      }
     ?>
       <FORM method="POST" action='check_login.php'>
         <table border=0 width="40%" align="center">
