@@ -155,7 +155,7 @@
                             }
                         }
                         foreach($res as $row){
-                            echo '<a class = "text_pop" style=color:rgb(255,0,70)> Catre '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
+                            echo '<a class = "text_pop" style=color:rgb(255,0,70)> Catre '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma '.$row['suma'].'</a>';
 
                         }
                         //tranzactii in

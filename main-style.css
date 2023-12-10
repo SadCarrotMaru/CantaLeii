@@ -10,7 +10,7 @@ html, body{
     height: 100vh;
     background-color: #001e28;
     display: grid;
-    grid-template-columns: 10vw 1fr 500px 10vw;
+    grid-template-columns: 10vw 1fr 600px 10vw;
 }
 #one{
     display: flex;
@@ -25,7 +25,7 @@ html, body{
 }
 #three{
     display: grid;
-    grid-template-rows: 300px 3em 3em 1fr;
+    grid-template-rows: 300px 4em 4em 1fr;
     padding: 10% 5% 5% 5%;
 }
 #four{
@@ -37,13 +37,13 @@ html, body{
     background-color: #39505C;
     border-radius: 50%;
     border: white solid medium;
-    height: 2em;
-    width: 2em;
+    height: 3em;
+    width: 3em;
 }
 
 .button{
     background-color: #39505C;
-    height: 20vh;
+    height: 18vh;
     border: white solid medium;
     border-radius: 10px;
     display: flex;
@@ -65,15 +65,15 @@ html, body{
 a, td{
     font-family: 'Noto Serif Balinese', serif;
     color: #EAEAEA;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 img{
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
 }
 #eco_anc{
     position: relative;
-    top: -80px;
+    top: -100px;
 }
 .click{
     color: #EAEAEA;
