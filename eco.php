@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php
+                    require "header.php";
+                    //echo '<a class="click">'.$_SESSION['username'].'</a>';
+                    $servername = "mysql-neverlanes.alwaysdata.net";
+                    $username = "336043";
+                    $password = "m.2a*Z!#mV!9vWH";
+                    $dbname = "neverlanes_cantaleii";  
+                ?>
   <title>CantaLeii</title>
         <link rel="icon" type="ima/jpg" href="apple1.svg">
         <meta charset="utf-8">
@@ -57,14 +65,7 @@
     </div>
     <div id="metrou">
         <!-- <img id="back" src="back.png" alt="Back"> -->
-        <?php
-                    require "header.php";
-                    //echo '<a class="click">'.$_SESSION['username'].'</a>';
-                    $servername = "mysql-neverlanes.alwaysdata.net";
-                    $username = "336043";
-                    $password = "m.2a*Z!#mV!9vWH";
-                    $dbname = "neverlanes_cantaleii";  
-                ?>
+        
         <?php
             echo '<a class = "text_roundup"> Eco RoundUp </a><br>';
             //echo '<a class = "text_roundup">'.$_SESSION['username'].'</a>';
