@@ -5,7 +5,7 @@ function set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type){
     $_SESSION['iban']=$iban;
     $_SESSION['cnum']=$cnum;
     $_SESSION['valid']=$valid;
-    $_SESSOIN['cvc']=$cvc;
+    $_SESSION['cvc']=$cvc;
     $_SESSION['sold']=$sold;
     $_SESSION['acc_type']=$acc_type;
 }
@@ -14,7 +14,7 @@ function close_card_session(){
     $_SESSION['iban']=-1;
     $_SESSION['cnum']=-1;
     $_SESSION['valid']=-1;
-    $_SESSOIN['cvc']=-1;
+    $_SESSION['cvc']=-1;
     $_SESSION['sold']=-1;
     $_SESSION['acc_type']=-1;
 }
@@ -105,9 +105,67 @@ if(count($_POST)>0) {
             $query="UPDATE ACCOUNTS set sold =".$sold_nou." where IBAN ='".$iban_dest."';";
             $link->query($query);
 
+            //verificam round-up
+            if($_SESSION['roundup'])
+            {
+                $rndup = ceil($suma_dorita) - $suma_dorita;
+                if($rndup <= $_SESSION['sold'] - $suma_dorita)
+                {
+                    //adaugam banii din round-up in conturile userului
+                    $query_cont_rndup = "select sold,iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=2;"
+                    $query_cont_rndup_ans = $link->query($query_cont_rndup);
+                    if($query_cont_rndup_ans->num_rows>0){
+                        while($row = $query_cont_rndup_ans->fetch_assoc()) {
+                            $sold_rndup = $row["sold"]; 
+                            $rndup_IBAN +=$row["iban"]; 
+                          } 
+                    }
+
+                    $query_eco_cont_rndup = "select sold,account_id, iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=3;"
+                    $query_eco_cont_rndup_ans = $link->query($query_eco_cont_rndup);
+                    if($query_eco_cont_rndup_ans->num_rows>0){
+                        while($row = $query_eco_cont_rndup_ans->fetch_assoc()) { 
+                            $rndup_eco_IBAN =$row["iban"];
+                            $sold_eco_rndup = $row["sold"]; 
+                            $acc_id_eco = $row["account_id"];
+                          } 
+                    }
+
+                    $get_ecr = "select eco_roundup_percent from ACC_IS_ECO where account_id = ".$acc_id_eco.";"
+                    $ecr_ans = $link->query($get_ecr);
+                    if($ecr_ans->num_rows>0)
+                    {
+                        while($row = $ecr_ans->fetch_assoc())
+                        {
+                            $eco_rnd_up_proc = $row["eco_roundup_percent"];
+                        }
+                    }
+
+                    $suma_cont_2 = (100-$eco_rnd_up_proc) * $rndup / 100;
+                    $suma_cont_3 = ($eco_rnd_up_proc) * $rndup / 100;
+
+                    $query="UPDATE ACCOUNTS set sold =".($_SESSION['sold']-$suma_dorita-$rndup)." where IBAN ='".$_SESSION['iban']."';";
+                    $link->query($query);
+
+                    $query="UPDATE ACCOUNTS set sold =".($sold_rndup+$suma_cont_2)." where IBAN ='".$rndup_IBAN."';";
+                    $link->query($query);
+
+                    $query="UPDATE ACCOUNTS set sold =".($sold_eco_rndup+$suma_cont_3)." where IBAN ='".$rndup_eco_IBAN."';";
+                    $link->query($query);
+                }
+                    else
+                    {
+                        $query="UPDATE ACCOUNTS set sold =".($_SESSION['sold']-$suma_dorita)." where IBAN ='".$_SESSION['iban']."';";
+                        $link->query($query);
+                    }
+            }
+                else
+                {
+                    $query="UPDATE ACCOUNTS set sold =".($_SESSION['sold']-$suma_dorita)." where IBAN ='".$_SESSION['iban']."';";
+                    $link->query($query);
+                }
+
             //scadem banii din cont
-            $query="UPDATE ACCOUNTS set sold =".($_SESSION['sold']-$suma_dorita)." where IBAN ='".$_SESSION['iban']."';";
-            $link->query($query);
 
             //vedem account_id de la second_party
             $qu="select account_id from ACCOUNTS where iban ='".$iban_dest."';";
