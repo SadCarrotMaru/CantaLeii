@@ -22,7 +22,10 @@ window.onload = function () {
         document.getElementById("pop-istoric").style.display = 'block';
     });
     buttons[4].addEventListener("click", event => {
-        console.log('round up ok');
+        pop_bkg.style.display = 'block';
+        pop_space.style.display = 'grid';
+        document.getElementById("pop-roundup").style.display = 'block';
+
     });
     buttons[5].addEventListener("click", event => {
         pop_bkg.style.display = 'block';
@@ -55,6 +58,7 @@ window.onload = function () {
         document.getElementById("pop-transfer").style.display = 'none';
         document.getElementById("pop-istoric").style.display = 'none';
         document.getElementById("pop-setari").style.display = 'none';
+        document.getElementById("pop-roundup").style.display = 'none';
     }
     document.getElementById("eco").onclick = function(){
         window.location.href = "eco.html";

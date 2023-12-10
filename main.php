@@ -182,6 +182,64 @@
 
                     ?>
                 </div>  
+                <div id="pop-roundup">
+                    <?php
+                        echo '<a class = "text_roundup"> RoundUp </a><br>';
+                        //echo '<a class = "text_roundup">'.$_SESSION['username'].'</a>';
+                        //afisam optiunea curenta de roundup 
+                        $link = mysqli_connect($servername, $username, $password, $dbname);
+                        $query = "select * from ACCOUNTS a join ACC_IS_ECO e on(a.account_id = e.account_id) join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=3;";
+                        $res = $link->query($query);
+                        //print_r($res);
+                        if($res->num_rows>0){
+                            
+                            while($row = $res->fetch_assoc()) {
+                                $fn = $row["first_name"]; 
+                                $ln =$row["last_name"]; 
+                                $rubool = $row["roundup"];
+                                if($rubool == 1){
+                                    $rubool ="Your roundup is active!";
+                                }
+                                else{
+                                    $rubool ="Your roundup is not active!";
+                                }
+                                $ecoruper = $row["eco_roundup_percent"];
+                                echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
+                                echo '<a>'.$rubool.' </a><br>';
+                                echo '<a> Your current eco roundup percent is: '.$ecoruper.'</a><br>';
+                              } 
+                        }
+                        echo '<FORM method="POST" action="check_roundup.php">
+                        <table border=0 width="40%" align="center">
+                          <tr>
+                          <td>Roundup option*: </td>
+                          <td>
+                            <select name="roundupopt" required>
+                            <option>activ</option>
+                            <option>inactiv</option>
+                            <option SELECTED VALUE="">Select...</option>
+                            </td>
+                          </tr>
+                          <tr>
+                              <td>Eco roundup percent*: </td>
+                              <td><INPUT TYPE="text" name="percent" required></td>
+                          </tr>
+                          <tr>
+                              <td>Password*: </td>
+                              <td><INPUT TYPE="text" name="password" required></td>
+                          </tr>
+                          <tr>
+                            <td><INPUT TYPE="reset" VALUE="reset"></td>
+                            <td><INPUT TYPE="submit" VALUE="send"></td>
+                          </tr>
+                          
+                         </table>
+                         </form>'
+                        //si de roundup eco
+                        //afisam form de change roundup
+                        
+                    ?>
+                </div>
                 <div id = "pop-setari"> 
                     <?php 
                         echo '<a class = "text_pop"> Setari </a>';
