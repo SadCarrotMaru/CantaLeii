@@ -162,7 +162,7 @@ window.onload = function(){
         else{
             console.log(apples.length);
             for(let i = 0; i < apples.length; i++){
-                var rando = Math.random() < 0.05; 
+                var rando = Math.random() < 0.03; 
                 console.log(rando);
                 if(rando){
                     apples[i].classList.remove("tree_apple");
@@ -171,7 +171,7 @@ window.onload = function(){
                         apples[i].classList.remove("falling_apple");
                         apples[i].classList.add("no_apple");
                         apples.splice(i, 1);                       
-                    }, 8000);
+                    }, 5000);
                     break;
                 }
             }
