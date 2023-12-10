@@ -153,7 +153,8 @@ window.onload = function(){
     width = Math.max( body.scrollWidth, body.offsetWidth, 
                             html.clientWidth, html.scrollWidth, html.offsetWidth );
 
-    var points = 52, min_tree = 150, max_tree = 300;
+    var points = document.getElementById("total").innerHTML, min_tree = 150, max_tree = 300;
+    console.log(points);
     generate_trees(points, min_tree, max_tree);
     apples = Array.from(document.getElementsByClassName("tree_apple"));
     apple_maybe_fall = setInterval(function () {
