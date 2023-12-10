@@ -48,7 +48,12 @@
     </div>
     <div id="livada">
         <!-- <img id="back" src="back.png" alt="Back"> -->
-        <p>s</p>
+        <h3>Ce este Livada?</h3><br>
+        <p>Livada este spatiul tau virtual verde. Aici poti aduna padurea ta personala. Cum? Traind ecologic alaturi de banca noastra! Tot ce e nevoie sa faci este ca in timp ce astepti metroul sa scanezi codurile QR din statie, sa te loghezi in contul de banca si automat noi iti vom adauga un punct travel eco. La 10 puncte eco vei primi un copacel in livada, iar la 500 de puncte eco o surpriza din partea sponsorilor nostri iubitori de natura.</p>
+        <h3>Angajamentul nostru</h3><br>
+        <p>La fiecare 1000 de puncte stranse de clientii bancii noastre, promitem sa plantam un copac prin intermediul firmelor noastre partenere.</p>
+        <h3>De ce este important sa calatorim cu Metroul?</h3>
+        <p>Transportul este responsabil in Europa pentru aproximativ un sfert din emisiile de CO2, dintre care 71% provin de la masini obisnuite. Va dati seama cat de mult putem ajuta planeta doar alegand transportul in comun, chiar pe cel electric?</p>
     </div>
     <div id="metrou">
         <!-- <img id="back" src="back.png" alt="Back"> -->
