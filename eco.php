@@ -109,7 +109,8 @@
                     echo '<a class = "text_roundup">'.$rubool.' </a><br>';
                     echo '<a class = "text_roundup"> Procentul din RoundUp care se duce spre contul Eco este: '.$ecoruper.'</a><br>';
                     echo '<a class = "text_roundup"> Ai : '.$pct.' puncte eco travel.</a><br>';
-                    echo "<a class='text_roundup' id='total'>In total: ".($pct+$s)." puncte eco (din sold si travel)</a>";
+                    echo "<a class='text_roundup'>In total: ".($pct+$s)." puncte eco (din sold si travel)</a>";
+                    echo "<a class='text_roundup' id='total'>".($pct+$s)."</a>";
                   } 
             }
             
