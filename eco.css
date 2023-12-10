@@ -9,7 +9,7 @@ body {
     font-family: 'Noto Serif Balinese', serif;
     font-weight: bold;  
     background-color: #bcf5a6;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #wrapper, #wrapper2{
@@ -22,7 +22,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 #wrapper2{
@@ -47,15 +47,6 @@ body {
     text-align: center;
 }
 
-/* #back {
-    display: none;
-    position: absolute;
-    top: 2vh;
-    left: 25vw;
-    height: 10vh;
-    width: 5vw;
-    cursor: pointer;
-} */
 
 #roundup, #livada, #metrou {
     color:white;
