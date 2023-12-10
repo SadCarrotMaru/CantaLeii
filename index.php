@@ -40,29 +40,40 @@
         echo "<a class='error'>You are not near the qr code!</a>";
         $_SESSION['baddistance']='false';
       }
-    ?>
+      ?>
+      <div class="container">
+	<div class="screen">
+		<div class="screen__content">
       <FORM method="POST" action='check_login.php'>
-        <table border=0 width="40%" align="center">
-          <tr>
-              <td>Username*: </td>
-              <td><INPUT TYPE="text" name="username"></td>
-          </tr>
-          <tr>
-              <td>Password*: </td>
-              <td><INPUT TYPE="text" name="password"></td>
-          </tr>
-          <tr>
-            <td><INPUT TYPE="reset" VALUE="reset"></td>
-            <td><INPUT TYPE="submit" VALUE="send"></td>
-          </tr>
-          <tr>
-            <td><input type="hidden" id="latitude" name="latitude" value=0></td>
-            <td><input type="hidden" id="longitude" name="longitude" value=0></td>
-          </tr>
-          
-         </table>
-         </form>
-    </div>
+      <table border=0 width="40%" align="center">
+      <tr>
+          <td>Username*: </td>
+          <td><INPUT TYPE="text" name="username"></td>
+      </tr>
+      <tr>
+          <td>Password*: </td>
+          <td><INPUT TYPE="password" name="password"></td>
+      </tr>
+      <tr>
+        <td><INPUT TYPE="reset" VALUE="reset"></td>
+        <td><INPUT TYPE="submit" VALUE="send"></td>
+      </tr>
+      <tr>
+        <td><input type="hidden" id="latitude" name="latitude" value=0></td>
+        <td><input type="hidden" id="longitude" name="longitude" value=0></td>
+      </tr>
+      
+     </table>
+     </form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		  </div>		
+	  </div>
+  </div>
   
  
 </body>

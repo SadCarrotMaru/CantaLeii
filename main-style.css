@@ -8,7 +8,7 @@ html, body{
 #content{
     font-family: 'Noto Serif Balinese', serif;
     height: 100vh;
-    background-color: #001e28;
+    background: linear-gradient(90deg, #001e28, #39505C);	
     display: grid;
     grid-template-columns: 10vw 1fr 600px 10vw;
 }
