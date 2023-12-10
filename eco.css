@@ -99,3 +99,6 @@ body {
 a{
     color: white;
 }
+#total{
+    display:none;
+}
