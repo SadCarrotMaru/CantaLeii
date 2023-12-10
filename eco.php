@@ -63,6 +63,7 @@
         <p>La fiecare 1000 de puncte stranse de clientii bancii noastre, promitem sa plantam un copac prin intermediul firmelor noastre partenere. La fiecare 50 de puncte acumulate de un utilizator, acesta va primi un certificat de plantare al copacului pentru care a contribuit cel mai mult.</p>
         <h3>De ce este important sa calatorim cu Metroul?</h3>
         <p>Transportul este responsabil in Europa pentru aproximativ un sfert din emisiile de CO2, dintre care 71% provin de la masini obisnuite. Va dati seama cat de mult putem ajuta planeta doar alegand transportul in comun, chiar pe cel electric?</p>
+        <br><br>
     </div>
     <div id="metrou">
         <!-- <img id="back" src="back.png" alt="Back"> -->
