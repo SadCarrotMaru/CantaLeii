@@ -83,7 +83,9 @@
                 }
             }
             $query = "select * from ACCOUNTS a join ACC_IS_ECO e on(a.account_id = e.account_id) join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=3;";
+            
             $res = $link->query($query);
+            $s=0;
             //print_r($res);
             if($res->num_rows>0){
                 
@@ -99,14 +101,17 @@
                         $rubool ="Contul tau de RoundUp nu este activ!";
                     }
                     $ecoruper = $row["eco_roundup_percent"];
+                    $s=$row['sold'];
                     echo '<a class= "text_roundup">Soldul din contul Round_up normal este '.$soldru.'</a><br>';
                     echo '<a class= "text_roundup">Soldul din contul Round_up eco este '.$row['sold'].'</a><br>';
                     echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
                     echo '<a class = "text_roundup">'.$rubool.' </a><br>';
                     echo '<a class = "text_roundup"> Procentul din RoundUp care se duce spre contul Eco este: '.$ecoruper.'</a><br>';
                     echo '<a class = "text_roundup"> Ai : '.$pct.' puncte eco travel.</a><br>';
+                    echo "<a class='text_roundup' id='total'>In total: ".($pct+$s)." puncte eco (din sold si travel)</a>";
                   } 
             }
+            
         ?>
     </div>
 </div>
