@@ -119,7 +119,7 @@ window.onload = function () {
         const canvas = document.getElementById("canvcard");
         if (canvas.getContext) {
             const ctx = canvas.getContext("2d");
-            drawRoundedRect(ctx, 2, 2, w - 4, h - 4, cornerRadius);
+            drawRoundedRect(ctx, 2, 2, w , h , cornerRadius);
             var text = cnum.innerHTML;
             console.log(text);
             if(sessionStorage["card_info"] == "shown")
@@ -128,13 +128,23 @@ window.onload = function () {
                 drawText(ctx, str, 20, (2.5/3) *h,16,"black");
                 str2 = "CVC: " + cvc;
                 drawText(ctx, str2, 300, (2.5/3) * h,16,"black");
+                base_image = new Image();
+                base_image.src = 'logo.png';
+                base_image.onload = function(){
+                ctx.drawImage(base_image, 300 , 0, 250, 250);
+                }
             }
             else
             {
                 str = fn + " " + ln;
-                text_ = "**** **** **** " + text[15] + text[16] + text[17] + text[18];
+                text_ = "**** **** **** " + text[15] + text[16] + text[17] + text[18] + "";
                 drawText(ctx, text_, 20, (2 / 3) * h, 30, "black");
                 drawText(ctx, str, 20, (2.5/3) *h,16,"black");
+                base_image = new Image();
+                base_image.src = 'logo.png';
+                base_image.onload = function(){
+                ctx.drawImage(base_image, 200 ,(0.2)*h);
+            }
             }
         }
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/png" href="logo_icon.png">
         <meta charset = "utf-8">
         <meta name="autor" content="CantaLeii">
         <meta name="description" content="Main Page">
