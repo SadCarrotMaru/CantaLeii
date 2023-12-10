@@ -29,6 +29,25 @@ window.onload = function () {
         pop_space.style.display = 'grid';
         document.getElementById("pop-setari").style.display = 'block';
     });
+    let soldv=document.getElementById("sold").innerHTML;
+    let ibanv=document.getElementById("iban").innerHTML;
+
+    let sold = document.getElementById("soldb");
+    let iban = document.getElementById("ibanb");
+    sold.addEventListener("click", event=>{
+        if(sold.innerHTML==soldv){
+            sold.innerHTML="(SOLD)";
+        }
+        else
+            sold.innerHTML = soldv;
+    });
+    iban.addEventListener("click", event=>{
+        if(iban.innerHTML==ibanv){
+            iban.innerHTML="(IBAN)";
+        }
+        else
+        iban.innerHTML = ibanv;
+    });
 
     document.getElementById("pop-exit").onclick = function(){
         pop_bkg.style.display = 'none';
@@ -92,7 +111,7 @@ window.onload = function () {
             drawRoundedRect(ctx, 2, 2, w - 4, h - 4, cornerRadius);
             var text = cnum.innerHTML;
             console.log(text);
-            drawText(ctx, text, 20, (2 / 3) * h, 25, "black");
+            drawText(ctx, text, 20, (2 / 3) * h, 30, "black");
             drawText(ctx, str, 20, (2.5/3) *h,16,"black");
         }
 }

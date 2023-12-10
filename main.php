@@ -77,7 +77,7 @@
                 $cvc=$row["cvc"];
                 $sold=$row["sold"];
                 $acc_type=$row['account_type_id'];
-                echo "<a class='info'>".$row["account_id"]. "</a>"; 
+                echo "<a class='info'>".$row["account_id"]. "</a>";     
                 echo "<a class='info' id='iban'>".$row["IBAN"]. "</a>"; 
                 echo "<a class='info' id='card_nr'>".$row["card_number"]. "</a>"; 
                 echo "<a class='info' id='valid_thru'>".$row["valid_thru"]. "</a>"; 
@@ -97,8 +97,8 @@
                 <div id = "card-container"> 
                     <!--<canvas id="canvmap" width="300" height="300"></canvas>-->
                 </div>
-                <a class = "click"> (SOLD) </a>
-                <a class = "click"> (IBAN) </a>
+                <a class = "click" id="soldb"> (SOLD) </a>
+                <a class = "click" id="ibanb"> (IBAN) </a>
                 <div id = "eco"> <a> Eco </a> </div>
             </div>
             <div id = "four"> 
