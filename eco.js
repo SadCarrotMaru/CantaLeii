@@ -12,6 +12,8 @@ function toggleButtons()
         for(var i = 0; i < buttons.length; i++) 
             buttons[i].style.display = 'none';
 
+        document.getElementById("wrapper").style.width="auto";
+        document.getElementById("wrapper").style.height="auto";
         backImg.style.display = 'block';
     } 
         else 
@@ -19,7 +21,9 @@ function toggleButtons()
             //show
             for (var i = 0; i < buttons.length; i++) 
                 buttons[i].style.display = 'inline-block';
-
+        
+        document.getElementById("wrapper").style.width="100vw";
+        document.getElementById("wrapper").style.height="100vh";
         switch_divs(localStorage.pagename,"wrapper");
         localStorage.pagename = "wrapper";
         divEcoRoundUp.style.display = 'none';
