@@ -29,7 +29,7 @@
 
 <div id = "wrapper">
     <div id = "b_roundup"> Eco Round Up </div>
-    <div id = "b_metrou"> Metrou </div>
+    <div id = "b_metrou"> Eco Travel </div>
     <div id = "b_livada"> Livada </div>
 </div>
 
@@ -39,7 +39,7 @@
     <div id="roundup">
         <!-- <img id="back" src="back.png" alt="Back"> -->
         <t3> <b> The Million Trees Project </b> </t3>
-        <img src = "sponsori/million_trees.jpg" width="300em" height="300em" style="border-radius: 50%;" >
+        <img src = "sponsori/million_trees.jpg" width="300em" height="280em" style="border-radius: 50%;" >
         <p> This East Moline, Illinois, program is an offshoot of a river-cleanup nonprofit that has pulled almost 10.4 million pounds of trash from local waterways since 1998. Founder Chad Pregracke has expanded the group's mission to grow native oaks from volunteer-collected acorns, tend them in a nursery, and then transfer them to riverbanks and watersheds. The organization met its first million-tree milestone in 2016, and is shooting for a second one.</p>
         <t3> <b> The Green Belt Movement </b> </t3>
         <img src = "sponsori/green_belt_movement.jpg" width="300em" height="300em" style="border-radius: 50%;">
@@ -59,7 +59,7 @@
         <h3>Ce este Livada?</h3><br>
         <p>Livada este spatiul tau virtual verde. Aici poti aduna padurea ta personala. Cum? Traind ecologic alaturi de banca noastra! Tot ce e nevoie sa faci este ca in timp ce astepti metroul sa scanezi codurile QR din statie, sa te loghezi in contul de banca si automat noi iti vom adauga un punct travel eco. La 10 puncte eco vei primi un copacel in livada, iar la 500 de puncte eco o surpriza din partea sponsorilor nostri iubitori de natura.</p>
         <h3>Angajamentul nostru</h3><br>
-        <p>La fiecare 1000 de puncte stranse de clientii bancii noastre, promitem sa plantam un copac prin intermediul firmelor noastre partenere.</p>
+        <p>La fiecare 1000 de puncte stranse de clientii bancii noastre, promitem sa plantam un copac prin intermediul firmelor noastre partenere. La fiecare 50 de puncte acumulate de un utilizator, acesta va primi un certificat de plantare al copacului pentru care a contribuit cel mai mult.</p>
         <h3>De ce este important sa calatorim cu Metroul?</h3>
         <p>Transportul este responsabil in Europa pentru aproximativ un sfert din emisiile de CO2, dintre care 71% provin de la masini obisnuite. Va dati seama cat de mult putem ajuta planeta doar alegand transportul in comun, chiar pe cel electric?</p>
     </div>
