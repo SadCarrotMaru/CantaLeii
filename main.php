@@ -188,6 +188,15 @@
                         //echo '<a class = "text_roundup">'.$_SESSION['username'].'</a>';
                         //afisam optiunea curenta de roundup 
                         $link = mysqli_connect($servername, $username, $password, $dbname);
+                        $q = "select * from ACCOUNTS a join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=2;";
+                        $res = $link->query($q);
+                        //print_r($res);
+                        $soldru=-1;
+                        if($res->num_rows>0){
+                            while($row = $res->fetch_assoc()) {
+                                $soldru = $row['sold'];
+                            }
+                        }
                         $query = "select * from ACCOUNTS a join ACC_IS_ECO e on(a.account_id = e.account_id) join CLIENTS c on (c.client_id = a.client_id) WHERE c.client_id =".$_SESSION['client_id']." and account_type_id=3;";
                         $res = $link->query($query);
                         //print_r($res);
@@ -204,6 +213,8 @@
                                     $rubool ="Your roundup is not active!";
                                 }
                                 $ecoruper = $row["eco_roundup_percent"];
+                                echo '<a class= "text_roundup">Soldul din contul Round_up normal este '.$soldru.'</a><br>';
+                                echo '<a class= "text_roundup">Soldul din contul Round_up eco este '.$row['sold'].'</a><br>';
                                 echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
                                 echo '<a>'.$rubool.' </a><br>';
                                 echo '<a> Your current eco roundup percent is: '.$ecoruper.'</a><br>';
