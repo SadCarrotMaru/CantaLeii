@@ -62,12 +62,13 @@ body {
     grid-column: 2;
     display: none;
     background-color: rgba(0,104,56, 0.5);
-    padding: 0 10vw 0 10vw;
+    padding: 4vh 10vw 0 10vw;
     width: auto;
     height: 100vh;
     text-align: center;
     overflow-y: auto;
 }
+
 
 #pop-exit{
     height: 50px;

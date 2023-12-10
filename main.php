@@ -19,7 +19,12 @@
                     $servername = "mysql-neverlanes.alwaysdata.net";
                     $username = "336043";
                     $password = "m.2a*Z!#mV!9vWH";
-                    $dbname = "neverlanes_cantaleii";  
+                    $dbname = "neverlanes_cantaleii"; 
+                    if($_SESSION['client_id'] == -1)
+                    {
+                        close_card_session();
+                        header("location: index.php");
+                    } 
                 ?>
                 
 
@@ -40,7 +45,7 @@
         $_SESSION['valid']=$valid;
         $_SESSION['cvc']=$cvc;
     }
-    function close_card_session($acc_id,$iban,$cnum,$valid,$cvc){
+    function close_card_session(){
         $_SESSION['acc_id']=-1;
         $_SESSION['iban']=-1;
         $_SESSION['cnum']=-1;
@@ -173,7 +178,7 @@
                         foreach($res as $row){
                             //selectam second party din tranzactia asta, respectiv numele omului
                             
-                            echo '<a class = "text_pop" style=color:MediumSpringGreen> De la '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
+                            echo '<a class = "text_pop" style=color:MediumSpringGreen> De la '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma '.$row['suma'].'</a>';
                         }
                         if (!$link) {
                             echo "Error: Unable to connect to MySQL.";
