@@ -145,6 +145,7 @@ var body, html, height, width;
 var apples = [];
 
 window.onload = function(){
+    eco();
     body = document.body;
     html = document.documentElement;
 
@@ -160,10 +161,8 @@ window.onload = function(){
         if (apples.length == 0)
           clearInterval(apple_maybe_fall);
         else{
-            console.log(apples.length);
             for(let i = 0; i < apples.length; i++){
                 var rando = Math.random() < 0.03; 
-                console.log(rando);
                 if(rando){
                     apples[i].classList.remove("tree_apple");
                     apples[i].classList.add("falling_apple");
