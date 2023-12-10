@@ -47,6 +47,7 @@ if(count($_POST)>0) {
         $query = "update ACC_IS_ECO set eco_roundup_percent =".$ecoper." where account_id =".$acc_id.";";
         echo $query;
         $link->query($query);
+        header('Location:main.php');
     }
 
 }
