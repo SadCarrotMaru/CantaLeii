@@ -1,6 +1,6 @@
 <?php
 
-function set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type){
+function set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type,$ru){
     $_SESSION['acc_id']=$acc_id;
     $_SESSION['iban']=$iban;
     $_SESSION['cnum']=$cnum;
@@ -8,6 +8,7 @@ function set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type){
     $_SESSION['cvc']=$cvc;
     $_SESSION['sold']=$sold;
     $_SESSION['acc_type']=$acc_type;
+    $_SESSION['roundup']=$ru;
 }
 function close_card_session(){
     $_SESSION['acc_id']=-1;
@@ -17,6 +18,8 @@ function close_card_session(){
     $_SESSION['cvc']=-1;
     $_SESSION['sold']=-1;
     $_SESSION['acc_type']=-1;
+    $_SESSION['roundup']=-1;
+
 }
 function get_card_data($client){
     $servername = "mysql-neverlanes.alwaysdata.net";
@@ -39,7 +42,8 @@ function get_card_data($client){
     $cvc=-1;
     $sold=-1;
     $acc_type=-1;
-    $q1="select account_id, IBAN, card_number, valid_thru, cvc, sold,account_type_id FROM ACCOUNTS where client_id = '".$client."' and account_type_id = 1;";
+    $ru=-1;
+    $q1="select account_id, IBAN, card_number, valid_thru, cvc, sold,account_type_id,roundup FROM ACCOUNTS where client_id = '".$client."' and account_type_id = 1;";
     $res = $link->query($q1);
                     
     if($res->num_rows >0){
@@ -51,6 +55,7 @@ function get_card_data($client){
             $cvc=$row["cvc"];
             $sold=$row["sold"];
             $acc_type=$row['account_type_id'];
+            $ru =$row['roundup'];
             print_r($row["account_id"]. "<br>"); 
             print_r($row["IBAN"]. "<br>"); 
             print_r($row["card_number"]. "<br>"); 
@@ -59,7 +64,7 @@ function get_card_data($client){
 
         } 
     }
-    set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type);
+    set_card_session($acc_id,$iban,$cnum,$valid,$cvc,$sold,$acc_type,$ru);
     mysqli_close($link);
 }
 
@@ -112,16 +117,16 @@ if(count($_POST)>0) {
                 if($rndup <= $_SESSION['sold'] - $suma_dorita)
                 {
                     //adaugam banii din round-up in conturile userului
-                    $query_cont_rndup = "select sold,iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=2;"
+                    $query_cont_rndup = "select sold,iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=2;";
                     $query_cont_rndup_ans = $link->query($query_cont_rndup);
                     if($query_cont_rndup_ans->num_rows>0){
                         while($row = $query_cont_rndup_ans->fetch_assoc()) {
                             $sold_rndup = $row["sold"]; 
-                            $rndup_IBAN +=$row["iban"]; 
+                            $rndup_IBAN =$row["iban"]; 
                           } 
                     }
 
-                    $query_eco_cont_rndup = "select sold,account_id, iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=3;"
+                    $query_eco_cont_rndup = "select sold,account_id, iban from ACCOUNTS where client_id = ".$_SESSION['client_id']." and account_type_id=3;";
                     $query_eco_cont_rndup_ans = $link->query($query_eco_cont_rndup);
                     if($query_eco_cont_rndup_ans->num_rows>0){
                         while($row = $query_eco_cont_rndup_ans->fetch_assoc()) { 
@@ -131,7 +136,7 @@ if(count($_POST)>0) {
                           } 
                     }
 
-                    $get_ecr = "select eco_roundup_percent from ACC_IS_ECO where account_id = ".$acc_id_eco.";"
+                    $get_ecr = "select eco_roundup_percent from ACC_IS_ECO where account_id = ".$acc_id_eco.";";
                     $ecr_ans = $link->query($get_ecr);
                     if($ecr_ans->num_rows>0)
                     {
