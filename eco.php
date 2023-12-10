@@ -54,7 +54,7 @@
         <!-- <img id="back" src="back.png" alt="Back"> -->
         <?php
                     require "header.php";
-                    echo '<a class="click">'.$_SESSION['username'].'</a>';
+                    //echo '<a class="click">'.$_SESSION['username'].'</a>';
                     $servername = "mysql-neverlanes.alwaysdata.net";
                     $username = "336043";
                     $password = "m.2a*Z!#mV!9vWH";
@@ -86,18 +86,18 @@
                     $ln =$row["last_name"]; 
                     $rubool = $row["roundup"];
                     if($rubool == 1){
-                        $rubool ="Your roundup is active!";
+                        $rubool ="Contul de RoundUp este activ!";
                     }
                     else{
-                        $rubool ="Your roundup is not active!";
+                        $rubool ="Contul tau de RoundUp nu este activ!";
                     }
                     $ecoruper = $row["eco_roundup_percent"];
                     echo '<a class= "text_roundup">Soldul din contul Round_up normal este '.$soldru.'</a><br>';
                     echo '<a class= "text_roundup">Soldul din contul Round_up eco este '.$row['sold'].'</a><br>';
                     echo '<a class = "text_roundup">'.$fn.' '.$ln.'</a><br>';
                     echo '<a class = "text_roundup">'.$rubool.' </a><br>';
-                    echo '<a class = "text_roundup"> Your current eco roundup percent is: '.$ecoruper.'</a><br>';
-                    echo '<a class = "text_roundup"> You have :'.$pct.' eco travel points.</a><br>';
+                    echo '<a class = "text_roundup"> Procentul din RoundUp care se duce spre contul Eco este: '.$ecoruper.'</a><br>';
+                    echo '<a class = "text_roundup"> Ai :'.$pct.' puncte eco travel.</a><br>';
                   } 
             }
         ?>
