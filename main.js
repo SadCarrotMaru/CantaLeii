@@ -86,7 +86,7 @@ window.onload = function () {
 
     // Draw a rounded rectangle
     function drawRoundedRect(ctx,x, y, width, height, radius) {
-        ctx.fillStyle = lightblue;
+        ctx.fillStyle = '#ff0046';
         ctx.beginPath();
       ctx.moveTo(x + radius, y);
       ctx.arcTo(x + width, y, x + width, y + height, radius);

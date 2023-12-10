@@ -8,7 +8,7 @@ html,body{
 body {
     font-family: 'Noto Serif Balinese', serif;
     font-weight: bold;  
-    background-color: rgb(103, 207, 133);
+    background-color: #bcf5a6;
     overflow: hidden
 }
 
@@ -41,6 +41,9 @@ body {
     height: 10vh;
     border-radius: 5px;
     cursor: pointer;
+    border: #39505C solid medium;
+    color: #39505C;
+    text-align: center;
 }
 
 /* #back {

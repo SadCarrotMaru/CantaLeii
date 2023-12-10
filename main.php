@@ -99,7 +99,8 @@
                 </div>
                 <a class = "click" id="soldb"> (SOLD) </a>
                 <a class = "click" id="ibanb"> (IBAN) </a>
-                <div id = "eco"> <a> Eco </a> </div>
+                <img src = "apple1.svg" id = "eco"> 
+                <a class = "click" id = "eco_anc"> Eco </a>
             </div>
             <div id = "four"> 
                 <div id = "setari" class = "button"> </div>
@@ -154,7 +155,7 @@
                             }
                         }
                         foreach($res as $row){
-                            echo '<a class = "text_pop" style=color:red> Catre '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
+                            echo '<a class = "text_pop" style=color:rgb(255,0,70)> Catre '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
 
                         }
                         //tranzactii in
@@ -171,7 +172,7 @@
                         foreach($res as $row){
                             //selectam second party din tranzactia asta, respectiv numele omului
                             
-                            echo '<a class = "text_pop" style=color:green> De la '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
+                            echo '<a class = "text_pop" style=color:MediumSpringGreen> De la '.$row['first_name'].' '.$row['last_name'].' Data: '.$row['date'].' Suma'.$row['suma'].'</a>';
                         }
                         if (!$link) {
                             echo "Error: Unable to connect to MySQL.";
