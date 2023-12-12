@@ -80,6 +80,7 @@ body {
     animation-iteration-count: 1;
     animation-name: fall1;
     animation-duration: 8s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes fall1 {
