@@ -7,7 +7,7 @@ $dbname = "neverlanes_cantaleii";
 
 function same_location($lat1, $lon1, $lat2, $lon2)
 {
-    $LOCATION_ERROR = 500; # in meters, change if you want a lower threshold
+    $LOCATION_ERROR = 500; // in meters, change if you want a lower threshold
 	$distance = calculateDistance($lat1, $lon1, $lat2, $lon2);
     echo $distance;
 	if ($distance <= $LOCATION_ERROR) return true;
@@ -28,35 +28,38 @@ function calculateDistance($lat1, $lon1, $lat2, $lon2)
 
 // Create connection
 require "header.php";
-// print_r($_POST);
 $link = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL.";
-    exit;
+    exit();
 }
-echo 'ok';
+
+$ok = false;
 if(count($_POST)>0) {
     $username=$_POST['username'];
     $password=$_POST['password'];
-    //$actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    //$code= $_GET['qrcode'];
-    // echo $username;
-    // echo $password;
-    $query="select * from CLIENTS where UPPER(username) = UPPER('".$username."') and password = '".$password."';";
+    $ok = true;
+}
+else if(count($_GET)>0){
+    $username=$_GET['username'];
+    $password=$_GET['password'];
+    $ok = true;
+}
 
+if($ok){
+  
+    $query="select * from CLIENTS where UPPER(username) = UPPER('".$username."') and password = '".$password."';";
     $result = $link->query($query);
-    //print_r ($result);
+
     if($result->num_rows >0){
         //session_start();
         $_SESSION["username"]=$username;
         $row = $result->fetch_assoc();
         $_SESSION["client_id"]=$row['client_id'];
-        echo $_SESSION['qrcode'];
-        //header("eco.html");
+        
         if($_SESSION['qrcode']!='none'){
             //database stuff
-
             //get the location id from the qrcode
             $actual_qr = str_replace('"', '', urldecode($_SESSION['qrcode']));
             $q0="select location_id from LOCATIONS WHERE qr_code='".$actual_qr."';";
@@ -84,7 +87,7 @@ if(count($_POST)>0) {
             
             //check if the request is being made from the qr code's location
             $q_locatie="select latitude, longitude from LOCATIONS where location_id = ".$location_id.";";
-            echo $q_locatie;
+
             $ans_locatie = $link->query($q_locatie);
             if($ans_locatie->num_rows > 0) {
                 while ($row = $ans_locatie->fetch_assoc()) {
@@ -92,19 +95,15 @@ if(count($_POST)>0) {
                     $targetlongitude = $row["longitude"];
                 }
             }
-            
             $latitude = $_POST['latitude'];
             $longitude = $_POST['longitude'];
-            echo $targetlatitude;
-            echo $targetlongitude;
-            echo $latitude;
-            echo $longitude;
+            
             if(same_location($latitude,$longitude,$targetlatitude,$targetlongitude) == true)
             {
             //check if the station is not timed out (not used in the same day)
             //get current time
             $date = date('Y-m-d');
-            if($date != $most_recent){ //de modificat ==
+            if($date != $most_recent){
                 //is valid
                 //we add a point to travel points and a entry in history of travels
                 $eco_pts=1;
@@ -124,6 +123,7 @@ if(count($_POST)>0) {
                 $link->query($q3);
                 $q4 ="insert into ECO_POINTS_HISTORY values(".$_SESSION["client_id"].", ".$location_id.",'".$date."');";
                 $link->query($q4);
+
                 //then we redirect to livada de meri
                 $_SESSION['qrcode']='none';
                 header("Location: eco.php");
@@ -145,10 +145,7 @@ if(count($_POST)>0) {
                     header("Location: index.php");
                 }
 
-
-
             echo same_location($latitude,$longitude,$targetlatitude,$targetlongitude);
-            ///next
         }
         else{
             echo $_SESSION['qrcode'];
@@ -157,13 +154,16 @@ if(count($_POST)>0) {
         
     }
     else{
-        echo "Nu am gasit acest username cu aceasta parola ;(";
         $_SESSION['badlogin']='true';
         header("Location: index.php");
     }
-    // header("Location: login_check.php");		
     exit();
 
+}
+else{
+    $_SESSION['badlogin']='true';
+    header("Location: index.php");
+    exit();
 }
 mysqli_close($link);
 

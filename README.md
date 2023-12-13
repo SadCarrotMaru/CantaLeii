@@ -1,20 +1,25 @@
 # **HackItAll 2023**
 
-## Echipa ***CantaLeii***
+[![ro](https://img.shields.io/badge/lang-ro-cornflowerblue.svg)](README.ro.md)
+## Team ***CantaLeii***
 
 >- Brabete Marius Stelian
 >- Cocheci Cristiana
 >- Visan-Draghicescu Emanuel Sebastian
 
-## Tema
-*Cerinta **Deutsche Bank**:*
+## Theme
+_**Deutsche Bank** task:_
 
-> Sa se dezvolte o aplicatie bancara inovatoare care incurajeaza si recompenseaza utilizatorii pentru adoptarea practicilor eco-friendly si reducerea aprentei de carbon.
+> Develop an innovative `banking application` that **encourages** and **rewards** users for adopting `eco-friendly` practices and **reducing their carbon footprint**.
 >
-> Prin aceste recompense, ne dorim sa transformam experienta financiara intr-o sursa de motivatie pentru o schimbare pozitiva in comportamentul lor.
+> Through these rewards, we want to transform the **financial experience** into a source of **motivation** for a **positive change** in their behavior.
 
-## Aplicatie Web:
 
-https://cantaleii.alwaysdata.net/
+## Web Aplication:
 
-## Descriere
+> https://cantaleii.alwaysdata.net/check_login.php?username=Demo&password=demo_pass
+
+> Username: Demo <br>
+> Password: demo_pass
+
+## Description
