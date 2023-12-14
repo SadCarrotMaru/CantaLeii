@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#content {
+    font-family: 'Noto Serif Balinese', serif;
+    height: 100vh;
+    background: linear-gradient(90deg, #001e28, #39505C);
+    display: grid;
+    grid-template-columns: 10vw 1fr 600px 10vw;
+}
+
+#one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5% 5% 5% 5%;
+}
+
+#two {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 10% 5% 5% 5%;
+}
+
+#three {
+    display: grid;
+    grid-template-rows: 300px 4em 4em 1fr;
+    padding: 10% 5% 5% 5%;
+}
+
+#four {
+    padding: 5% 5% 5% 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#setari {
+    background-color: #39505C;
+    border-radius: 50%;
+    border: white solid medium;
+    height: 3em;
+    width: 3em;
+}
+
+.button {
+    background-color: #39505C;
+    height: 18vh;
+    border: white solid medium;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#one>.button {
+    height: auto;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+#eco {
+    justify-self: center;
+}
+
+#eco:hover {
+    cursor: pointer;
+}
+
+a,
+td {
+    font-family: 'Noto Serif Balinese', serif;
+    color: #EAEAEA;
+    font-size: 2em;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+#eco_anc {
+    position: relative;
+    top: -100px;
+}
+
+.click {
+    color: #EAEAEA;
+    justify-self: center;
+    cursor: pointer;
+}
+
+#background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(120, 120, 120, 0.5);
+}
+
+#space {
+    display: none;
+    position: fixed;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 70px 1fr;
+    top: 10vh;
+    left: 20vw;
+    width: 60vw;
+    height: 80vh;
+    background-color: #001e28;
+    border: #EAEAEA solid large;
+}
+
+#pop-exit {
+    height: 50px;
+    background-color: #39505C;
+    color: white;
+    border: white solid medium;
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    justify-self: flex-end;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0 10px 0 10px;
+}
+
+#pop-transfer, #pop-istoric, #pop-setari, #pop-roundup {
+    display: none;
+    grid-column: 2/3;
+    grid-row: 2;
+    height: auto;
+    width: auto;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.text_pop {
+    display: block;
+    color: #39505C;
+    justify-self: center;
+}
+
+.info {
+    display: none;
+}

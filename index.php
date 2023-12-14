@@ -1,8 +1,9 @@
 <html>
   <head>
-    <link rel="stylesheet" href="login.css" type="text/css">
+    <link rel="icon" type="image/png" href="assets/art/logo_icon.png">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap">
-    <title>cantaleii login</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="autor" content="login">
     <meta name="description" content="cantaleii login">
@@ -16,12 +17,14 @@
               CANTALEII
           </h1>
           <div class="subtitle">
-            <h2>LOGIN</h2>
+            <h2>
+              LOGIN
+            </h2>
           </div>
       </div>
       
     <?php
-      require "header.php";
+      require "php/header.php";
       if(isset($_GET['qrcode'])){
         $_SESSION['qrcode']=$_GET['qrcode'];
       }
@@ -44,7 +47,7 @@
       <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-      <FORM method="POST" action='check_login.php'>
+      <FORM method="POST" action='php/check_login.php'>
       <table border=0 width="40%" align="center">
       <tr>
           <td>Username*: </td>

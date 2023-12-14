@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Balinese&display=swap');
+
+html,body{
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    font-family: 'Noto Serif Balinese', serif;
+    font-weight: bold;  
+    background-color: #bcf5a6;
+    overflow: hidden;
+}
+
+#wrapper, #wrapper2{
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+#wrapper2{
+    color:white;
+    display: none;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+#b_roundup, #b_metrou, #b_livada {
+    background-color: white;
+    display: block;
+    font-family: 'Noto Serif Balinese', serif;
+    font-weight: bold;
+    padding: 10px 15px 10px 15px;
+    margin: 5vh;
+    width: 10vw;
+    height: 10vh;
+    border-radius: 5px;
+    cursor: pointer;
+    border: #39505C solid medium;
+    color: #39505C;
+    text-align: center;
+}
+
+#roundup, #livada, #metrou {
+    color:white;
+    grid-column: 2;
+    display: none;
+    background-color: rgba(0,104,56, 0.5);
+    padding: 4vh 10vw 0vh 10vw;
+    width: auto;
+    height: 100vh;
+    text-align: center;
+    overflow-y: auto;
+}
+
+#pop-exit{
+    height: 50px;
+    background-color: rgba(0,104,56);
+    color: rgb(141,198,63);
+    border: white solid medium;
+    display: flex;
+    justify-self: flex-end;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0 10px 0 10px;
+}
+
+.falling_apple{
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-name: fall1;
+    animation-duration: 8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fall1 {
+  0%{
+    transform: translate(0vw, 0vh);
+    opacity: 100%;
+  }  
+  100%{
+    transform: translate(0vw, 150vh);
+    opacity: 100%;
+  }
+}
+
+.no_apple{
+    display: none;
+}
+a{
+    color: white;
+}
+#total{
+    display:none;
+}
+
+#sag_spate{
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
