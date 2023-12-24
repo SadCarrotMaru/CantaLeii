@@ -57,7 +57,10 @@ if($ok){
         $_SESSION["username"]=$username;
         $row = $result->fetch_assoc();
         $_SESSION["client_id"]=$row['client_id'];
-        
+        if(!isset($_SESSION['qrcode'])){
+            header("Location: main.php");
+        }
+        else{
         if($_SESSION['qrcode']!='none'){
             //database stuff
             //get the location id from the qrcode
@@ -151,7 +154,7 @@ if($ok){
             echo $_SESSION['qrcode'];
             header("Location: main.php");
         }
-        
+        }
     }
     else{
         $_SESSION['badlogin']='true';
